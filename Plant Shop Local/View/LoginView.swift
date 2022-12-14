@@ -25,7 +25,7 @@ struct LoginView: View {
     @State var isLoading: Bool = false
     
     //    MARK: User Defaults
-    @AppStorage("logo_status") var logStatus: Bool = false
+    @AppStorage("log_status") var logStatus: Bool = false
     @AppStorage("user_profile_url") var profileURL: URL?
     @AppStorage("user_name") var userNameStored: String = ""
     @AppStorage("user_UID") var userUID: String = ""
@@ -169,7 +169,7 @@ struct RegisterView: View {
     @State var isLoading: Bool = false
     
     //    MARK: User Defaults
-    @AppStorage("logo_status") var logStatus: Bool = false
+    @AppStorage("log_status") var logStatus: Bool = false
     @AppStorage("user_profile_url") var profileURL: URL?
     @AppStorage("user_name") var userNameStored: String = ""
     @AppStorage("user_UID") var userUID: String = ""
@@ -180,7 +180,7 @@ struct RegisterView: View {
                 .font(.largeTitle.bold())
                 .hAlign(.leading)
             
-            Text("Hello user, have a wonderful journey")
+            Text("Hello user, have a wonderful day!")
                 .font(.title3)
                 .hAlign(.leading)
             
@@ -340,8 +340,8 @@ struct RegisterView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
-        //        RegisterView()
+//        LoginView()
+        RegisterView()
     }
 }
 
