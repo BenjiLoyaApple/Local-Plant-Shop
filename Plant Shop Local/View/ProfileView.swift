@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
        
@@ -49,7 +48,7 @@ struct ProfileView_Previews: PreviewProvider {
 
 struct ShopText: View {
     
-    @State var mapSheet: Bool = false
+    @State var showMap: Bool = false
     
     var body: some View {
             HStack {
@@ -88,20 +87,68 @@ struct ShopText: View {
         .background(Color.black.opacity(0.3))
         .cornerRadius(20)
         .onTapGesture {
-            mapSheet.toggle()
+            showMap.toggle()
         }
-        .sheet(isPresented: $mapSheet, content: { MapSheetView()
+        .fullScreenCover(isPresented: $showMap, content: { MapView()
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
         })
     }
 }
 
+@ViewBuilder
+func HelperView()->some View {
+    
+    
+}
 
-struct MapSheetView: View {
+
+import MapKit
+
+struct MapView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    
+    @State var showShop: Bool = false
+    
     var body: some View {
-       
-            Text("Shops on the map")
-          
+        ZStack(alignment: .topLeading) {
+            //            Map Region
+            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 25.240, longitude: 55.2708), latitudinalMeters: 10000, longitudinalMeters: 10000)
+            Map(coordinateRegion: .constant(region))
+                .ignoresSafeArea()
+            
+            //            Sheet Button
+            
+            
+            HStack {
+                Button {
+                    showShop.toggle()
+                }label: {
+                    Image(systemName: "dock.rectangle")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    
+                }
+                
+                Spacer()
+                
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Image(systemName: "xmark")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                })
+            }
+            .padding(15)
+            .blurredSheet(.init(.ultraThinMaterial), show: $showShop) {
+                
+            }content: {
+            Text("Hello")
+                    .presentationDetents([.large, .medium, .height(50)])
+            }
+        }
     }
 }
+

@@ -156,7 +156,7 @@ struct RegisterView: View {
     @State var emailID: String = ""
     @State var password: String = ""
     @State var userName: String = ""
-    @State var userBio: String = ""
+    @State var userAdress: String = ""
     @State var userBioLink: String = ""
     @State var userProfilePicData: Data?
     
@@ -270,7 +270,7 @@ struct RegisterView: View {
                 .textContentType(.emailAddress)
                 .border(1, .gray.opacity(0.5))
             
-            TextField("About You", text: $userBio, axis: .vertical)
+            TextField("Adress Delivery", text: $userAdress, axis: .vertical)
                 .frame(minHeight: 100, alignment: .top)
                 .textContentType(.emailAddress)
                 .border(1, .gray.opacity(0.5))
@@ -286,7 +286,7 @@ struct RegisterView: View {
                     .hAlign(.center)
                     .fillView(.black)
             }
-            .disableWithOpacity(userName == "" || userBio == "" || emailID == "" || password == "" || userProfilePicData == nil)
+            .disableWithOpacity(userName == "" || userAdress == "" || emailID == "" || password == "" || userProfilePicData == nil)
             .padding(.top, 10)
         }
     }
@@ -306,7 +306,8 @@ struct RegisterView: View {
                 //                step 3: Downloading photo URl
                 let downloadURL = try await storageRef.downloadURL()
                 //                step 4: Creating a user Firestore Object
-                let user = User(username: userName, userBio: userBio, userBioLink: userBioLink, userUID: userUID, userEmail: emailID, userProfileURL: downloadURL)
+                let user = User(username: userName, userAdress: userAdress
+                                , userBioLink: userBioLink, userUID: userUID, userEmail: emailID, userProfileURL: downloadURL)
                 //                step 5: Saving user Doc into Firestore Database
                 let _ = try Firestore.firestore().collection("Users").document(userUID).setData(from: user, completion: {
                     error in
