@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
-struct Plant_Shop_LocalApp: App {
+struct TheFirstSMApp: App {
+    init(){
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
