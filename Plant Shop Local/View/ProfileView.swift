@@ -22,7 +22,7 @@ struct ProfileView: View {
                 
                 VStack(alignment: .leading) {
                     
-                    ProfileModel()
+                   Text("Profile")
                         .padding(.top, 50)
                     
                     Spacer()
