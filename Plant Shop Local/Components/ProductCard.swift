@@ -23,12 +23,11 @@ struct ProductCard: View {
                     .cornerRadius(20)
                     .frame(width: 180)
                     .scaledToFit()
-                    .sheet(isPresented: $showSheet, content: {
-                            DetailView(product: product)
-//                        Custom Detents
-                            .presentationDetents([.medium,.large])
-                            .presentationDragIndicator(.visible)
-                        })
+                    .blurredSheet(.init(.ultraThinMaterial), show: $showSheet) {
+                    }content: {
+                        DetailView(product: product)
+                            .presentationDetents([.large, .medium])
+                    }
                     .onTapGesture {
                         showSheet.toggle()
                     }
@@ -72,7 +71,7 @@ struct ProductCard: View {
             
             
             Button {
-                
+                cartManager.addToCart(product: product)
             } label: {
                 Label("Add to cart", systemImage: "cart")
             }
