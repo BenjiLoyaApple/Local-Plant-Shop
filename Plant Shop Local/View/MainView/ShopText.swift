@@ -13,6 +13,12 @@ struct ShopText: View {
     
     var body: some View {
             HStack {
+                Image(systemName: "map")
+                    .resizable()
+                    .frame(width: 60, height: 60)
+                    .foregroundColor(.white)
+                    .shadow(color: .black, radius: 2, x: 1, y: 1)
+                    .padding(.horizontal)
                 
                 Spacer()
                 
@@ -47,12 +53,11 @@ struct ShopText: View {
         .frame(maxWidth: .infinity)
         .background(Color.black.opacity(0.3))
         .cornerRadius(20)
+        .padding(.horizontal, 5)
         .onTapGesture {
             showMap.toggle()
         }
         .fullScreenCover(isPresented: $showMap, content: { MapView()
-                .presentationDetents([.medium, .large])
-                .presentationDragIndicator(.visible)
         })
     }
 }
