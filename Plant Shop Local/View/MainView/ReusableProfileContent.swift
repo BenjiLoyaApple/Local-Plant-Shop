@@ -22,7 +22,7 @@ struct ReusableProfileContent: View {
                     }
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 100, height: 100)
+                    .frame(width: 90, height: 90)
                     .clipShape(Circle())
                     
                     VStack(alignment: .leading, spacing: 6) {
@@ -45,6 +45,7 @@ struct ReusableProfileContent: View {
                     }
                     .hAlign(.leading)
                 }
+                .padding(.horizontal)
                 
                 Text("Post's")
                     .font(.title2)
@@ -52,6 +53,7 @@ struct ReusableProfileContent: View {
                     .foregroundColor(.black)
                     .hAlign(.leading)
                     .padding(.vertical, 15)
+                    .padding(.horizontal)
             }
         }
     }
