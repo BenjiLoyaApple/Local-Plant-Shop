@@ -17,7 +17,7 @@ struct HomeView: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(productList, id: \.id) { product in
+                    ForEach(Product.all, id: \.id) { product in
                         ProductCard(product: product)
                             .environmentObject(cartManager)
                     }
