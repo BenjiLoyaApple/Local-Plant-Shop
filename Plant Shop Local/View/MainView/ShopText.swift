@@ -87,6 +87,16 @@ struct MapView: View {
             
             
             HStack {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }, label: {
+                    Image(systemName: "xmark")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                })
+                
+                Spacer()
+                
                 Button {
                     showShop.toggle()
                 }label: {
@@ -95,16 +105,6 @@ struct MapView: View {
                         .fontWeight(.semibold)
                     
                 }
-                
-                Spacer()
-                
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Image(systemName: "xmark")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                })
             }
             .padding(15)
             .blurredSheet(.init(.ultraThinMaterial), show: $showShop) {

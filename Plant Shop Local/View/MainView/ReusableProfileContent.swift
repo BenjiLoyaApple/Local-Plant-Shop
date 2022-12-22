@@ -14,7 +14,7 @@ struct ReusableProfileContent: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             LazyVStack{
-                HStack(spacing: 12){
+                HStack(spacing: 15){
                     WebImage(url: user.userProfileURL).placeholder{
 //                        MARK: Placeholder image
                         Image("nullProfile")

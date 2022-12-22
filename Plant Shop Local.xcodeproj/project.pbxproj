@@ -84,6 +84,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E404D26A2954B44D00A642F8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E43BB95C294B4F03009476AA /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,9 +146,9 @@
 				E49A663929498AC30093E529 /* GoogleService-Info.plist */,
 				E49A662B294988950093E529 /* Plant_Shop_LocalApp.swift */,
 				E49A662D294988950093E529 /* ContentView.swift */,
-				E49A663F294993920093E529 /* Model */,
 				E49A663E294993890093E529 /* View */,
-				E4BB57A92949B829008379DD /* Components */,
+				E404D26A2954B44D00A642F8 /* ViewModel */,
+				E49A663F294993920093E529 /* Model */,
 				E49A662F294988960093E529 /* Assets.xcassets */,
 				E49A6631294988960093E529 /* Preview Content */,
 			);
@@ -159,8 +166,9 @@
 		E49A663E294993890093E529 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E43BB95E294B4F25009476AA /* Helpers */,
 				E43BB95D294B4F16009476AA /* MainView */,
+				E4BB57A92949B829008379DD /* Components */,
+				E43BB95E294B4F25009476AA /* Helpers */,
 				E43BB95C294B4F03009476AA /* Login */,
 				E49A6642294994460093E529 /* LoadingView.swift */,
 			);
